@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
+import { Alert } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 
 import logo from '../../assets/logo.png';
-//import api from '../../services/api';
+import api from '../../services/api';
 
 import {
   Container,
@@ -25,12 +27,32 @@ const Register: React.FC = () => {
 
   const [focused, setFocused] = useState<Number>(0);
 
-  // Manipular cor de button
+  const navigation = useNavigation();
 
-  async function handleCreateTransaction() {
-    console.log(title, value, type, category);
+  function handleCreateTransaction() {
+    try {
+      api.post('/transactions', {
+        title: title,
+        value: value,
+        type: type,
+        category: category,
+      });
+
+      Alert.alert('Sucesso', 'Sua transação foi criada com sucesso!');
+
+      setTitle('');
+      setValue('');
+      setType('');
+      setcategory('');
+
+      navigation.navigate('Dashboard');
+    } catch (err) {
+      Alert.alert(
+        'Erro',
+        'Ocorreu um erro ao realizar cadastro, verifique os dados e tente novamente!',
+      );
+    }
   }
-  console.log(focused);
 
   return (
     <Container>
@@ -58,7 +80,7 @@ const Register: React.FC = () => {
       <ContainerButton>
         <Button
           onPress={() => {
-            setType('Income');
+            setType('income');
             setFocused(1);
           }}
           // eslint-disable-next-line react-native/no-inline-styles
@@ -73,7 +95,7 @@ const Register: React.FC = () => {
         <Button
           onFocus={() => setFocused(2)}
           onPress={() => {
-            setType('Outcome');
+            setType('outcome');
             setFocused(2);
           }}
           // eslint-disable-next-line react-native/no-inline-styles
