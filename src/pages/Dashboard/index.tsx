@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-
+import { useNavigation } from '@react-navigation/native';
 import formatValue from '../../utils/formatValue';
 import api from '../../services/api';
 
@@ -22,10 +22,12 @@ import {
   Category,
   TextCategory,
   Value,
+  ContainerLoading,
   Loading,
 } from './styles';
 
 import { View } from 'react-native';
+import { ScrollView } from 'react-native-gesture-handler';
 
 interface Transaction {
   id: string;
@@ -49,6 +51,8 @@ const Dashboard: React.FC = () => {
   const [balance, setBalance] = useState<Balance>({} as Balance);
 
   const [loading, setLoading] = useState(true);
+  const [load, setLoad] = useState(true);
+  const navigation = useNavigation();
 
   useEffect(() => {
     async function loadTransactions(): Promise<void> {
@@ -77,12 +81,17 @@ const Dashboard: React.FC = () => {
     }
 
     loadTransactions();
-  }, []);
+
+    navigation.addListener('focus', () => setLoad(!load));
+  }, [load, navigation]);
 
   return (
-    <>
+    <ScrollView showsVerticalScrollIndicator={false}>
       {loading ? (
-        <Loading color="#363f5f" size={40} />
+        <ContainerLoading>
+          <Loading color="#363f5f" size="large" />
+          <Title>Carregando</Title>
+        </ContainerLoading>
       ) : (
         <Container>
           <Header>
@@ -151,7 +160,7 @@ const Dashboard: React.FC = () => {
           </ContainerTransaction>
         </Container>
       )}
-    </>
+    </ScrollView>
   );
 };
 

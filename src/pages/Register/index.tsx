@@ -75,6 +75,7 @@ const Register: React.FC = () => {
         <Title>Cadastro</Title>
         <Input
           placeholder="Nome"
+          autoCorrect={false}
           autoCapitalize="none"
           underlineColorAndroid="transparent"
           value={title}
@@ -83,6 +84,8 @@ const Register: React.FC = () => {
 
         <Input
           placeholder="Preço"
+          autoCorrect={false}
+          keyboardType="numeric"
           autoCapitalize="none"
           underlineColorAndroid="transparent"
           value={value}
@@ -122,6 +125,7 @@ const Register: React.FC = () => {
 
         <Input
           placeholder="Categoria"
+          autoCorrect={false}
           autoCapitalize="none"
           underlineColorAndroid="transparent"
           value={category}

@@ -128,8 +128,10 @@ export const TextCategory = styled.Text`
   color: #969cb3;
 `;
 
-export const Loading = styled.ActivityIndicator`
+export const ContainerLoading = styled.View`
   flex: 1;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
 `;
+
+export const Loading = styled.ActivityIndicator``;
