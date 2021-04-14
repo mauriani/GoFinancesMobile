@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import logo from '../../assets/logo.png';
+//import api from '../../services/api';
 
 import {
   Container,
@@ -17,6 +18,20 @@ import {
 } from './styles';
 
 const Register: React.FC = () => {
+  const [title, setTitle] = useState('');
+  const [value, setValue] = useState('');
+  const [type, setType] = useState('');
+  const [category, setcategory] = useState('');
+
+  const [focused, setFocused] = useState<Number>(0);
+
+  // Manipular cor de button
+
+  async function handleCreateTransaction() {
+    console.log(title, value, type, category);
+  }
+  console.log(focused);
+
   return (
     <Container>
       <Header>
@@ -28,21 +43,44 @@ const Register: React.FC = () => {
         placeholder="Nome"
         autoCapitalize="none"
         underlineColorAndroid="transparent"
+        value={title}
+        onChangeText={text => setTitle(text)}
       />
 
       <Input
         placeholder="Preço"
         autoCapitalize="none"
         underlineColorAndroid="transparent"
+        value={value}
+        onChangeText={text => setValue(text)}
       />
 
       <ContainerButton>
-        <Button>
+        <Button
+          onPress={() => {
+            setType('Income');
+            setFocused(1);
+          }}
+          // eslint-disable-next-line react-native/no-inline-styles
+          style={{
+            backgroundColor: focused === 1 ? '#cfecdc' : '#fff',
+          }}
+        >
           <IconIncome name="arrow-up-circle" size={25} color="#12A454" />
           <TextButton>Income</TextButton>
         </Button>
 
-        <Button>
+        <Button
+          onFocus={() => setFocused(2)}
+          onPress={() => {
+            setType('Outcome');
+            setFocused(2);
+          }}
+          // eslint-disable-next-line react-native/no-inline-styles
+          style={{
+            backgroundColor: focused === 2 ? '#f8c5cd' : '#fff',
+          }}
+        >
           <IconIncome name="arrow-down-circle" size={25} color="#E83F5B" />
           <TextButton>Outcome</TextButton>
         </Button>
@@ -52,9 +90,11 @@ const Register: React.FC = () => {
         placeholder="Categoria"
         autoCapitalize="none"
         underlineColorAndroid="transparent"
+        value={category}
+        onChangeText={text => setcategory(text)}
       />
 
-      <ButtonEnvio>
+      <ButtonEnvio onPress={handleCreateTransaction}>
         <TextButtonEnvio>Enviar</TextButtonEnvio>
       </ButtonEnvio>
     </Container>

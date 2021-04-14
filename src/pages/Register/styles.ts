@@ -2,6 +2,10 @@ import styled from 'styled-components/native';
 
 import Icon from 'react-native-vector-icons/Feather';
 
+interface ColorButton {
+  color?: string;
+}
+
 export const Container = styled.View`
   flex: 1;
   background: #e5e5e5;
@@ -54,9 +58,6 @@ export const Button = styled.TouchableOpacity`
   flex-direction: row;
   align-items: center;
   justify-content: center;
-
-  border-width: 1.5px;
-  border-color: #969cb3;
 
   width: 180px;
   height: 50px;

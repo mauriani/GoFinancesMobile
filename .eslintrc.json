@@ -27,6 +27,8 @@
       "react-hooks"
   ],
   "rules": {
+    "eslint-disable-next-line":"off",
+    "react-native/no-inline-styles":  "off",
     "import/first":"off",
     "camelcase":"off",
     "@typescript-eslint/no-explicit-any":"off",
