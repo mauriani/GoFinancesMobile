@@ -123,7 +123,7 @@ const Dashboard: React.FC = () => {
 
         <ContainerTransaction>
           {transactions.map(transaction => (
-            <Card>
+            <Card key={transaction.id}>
               <Title>{transaction.title}</Title>
               <Value type={`${transaction.type}`}>
                 {`${transaction.type === 'outcome' ? '-' : ''} ${

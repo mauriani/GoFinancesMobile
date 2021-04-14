@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import { Alert } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
@@ -29,7 +29,7 @@ const Register: React.FC = () => {
 
   const navigation = useNavigation();
 
-  function handleCreateTransaction() {
+  const handleCreateTransaction = useCallback(() => {
     try {
       api.post('/transactions', {
         title: title,
@@ -52,7 +52,7 @@ const Register: React.FC = () => {
         'Ocorreu um erro ao realizar cadastro, verifique os dados e tente novamente!',
       );
     }
-  }
+  }, [category, navigation, title, type, value]);
 
   return (
     <Container>
