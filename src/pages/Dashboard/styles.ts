@@ -127,3 +127,9 @@ export const TextCategory = styled.Text`
   font-family: 'Poppins-Regular';
   color: #969cb3;
 `;
+
+export const Loading = styled.ActivityIndicator`
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+`;
