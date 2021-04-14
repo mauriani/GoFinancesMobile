@@ -7,6 +7,7 @@ import logo from '../../assets/logo.png';
 
 import {
   Container,
+  TitleList,
   Scroll,
   Header,
   Image,
@@ -117,6 +118,8 @@ const Dashboard: React.FC = () => {
             </CardHeader>
           </Scroll>
         </View>
+
+        <TitleList>Listagem</TitleList>
 
         <ContainerTransaction>
           {transactions.map(transaction => (

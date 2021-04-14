@@ -35,6 +35,14 @@ export const Image = styled.Image`
   margin-bottom: 150px;
 `;
 
+export const TitleList = styled.Text`
+  font-size: 20px;
+  color: #000000;
+  font-family: 'Poppins-Medium';
+  margin-left: 24px;
+  margin-top: 24px;
+`;
+
 export const Scroll = styled.ScrollView.attrs(() => ({
   horizontal: true,
   showsHorizontalScrollIndicator: false,

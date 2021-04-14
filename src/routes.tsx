@@ -17,21 +17,25 @@ const Routes: React.FC = () => (
 
         if (route.name === 'Dashboard') {
           iconName = 'list';
-          color = focused ? '#FF872C' : '#363F5F';
+          color = focused ? '#FF872C' : '#868b9f';
           return <Icon name={iconName} size={size} color={color} />;
         } else if (route.name === 'Register') {
           iconName = 'dollar-sign';
-          color = focused ? '#FF872C' : '#363F5F';
+          color = focused ? '#FF872C' : '#868b9f';
           return <Icon name={iconName} size={size} color={color} />;
         }
       },
     })}
     tabBarOptions={{
       activeTintColor: '#363F5F',
-      inactiveTintColor: '#363F5F',
+      inactiveTintColor: '#868b9f',
       style: {
         backgroundColor: '#FFFFFF',
         borderTopColor: '#FFFFFF',
+      },
+      labelStyle: {
+        fontSize: 14,
+        fontFamily: 'Poppins-Regular',
       },
     }}
   >
