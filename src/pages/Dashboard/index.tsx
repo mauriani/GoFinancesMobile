@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import formatValue from '../../utils/formatValue';
 import api from '../../services/api';
@@ -69,6 +70,11 @@ const Dashboard: React.FC = () => {
 
       setTransactions(transactionsFormatted);
       setBalance(balanceFormatted);
+
+      await AsyncStorage.multiSet([
+        ['@GoFinances:transactions', JSON.stringify(transactionsFormatted)],
+        ['@GoFinances:balance', JSON.stringify(balanceFormatted)],
+      ]);
     }
 
     loadTransactions();
