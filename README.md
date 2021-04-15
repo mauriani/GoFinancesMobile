@@ -41,7 +41,7 @@ $ cd Desafio-Fundamentos-NodeJs
 $ yarn or npm install
 
 # Start
-yarn dev:start
+$ yarn dev:start
 ```
 
 - Após isso só rodar o comando abaixo
