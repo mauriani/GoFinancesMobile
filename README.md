@@ -47,5 +47,5 @@ $ yarn dev:start
 - Após isso só rodar o comando abaixo
 
 ```tsx
-$ yarn android
+$ yarn android / yarn ios
 ```
