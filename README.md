@@ -29,12 +29,19 @@ No nível dois foi desenvolvido uma aplicação em nodejs e após isso fizemos o
 
 ### Start na aplicação
 
- 
-
-- Primeiro você tem que dá start no seu servidor, para esse projeto foi utilizado o seguinte repositório abaixo, você pode clonar ele caso deseja.
+- Primeiro inicie o seu container docker.
+- Você tem que dá start no seu servidor, para esse projeto foi utilizado o seguinte repositório abaixo, você pode clonar ele caso deseja.
 
 ```tsx
+# clonando
 $ git clone https://github.com/mauriani/Desafio-Fundamentos-NodeJs
+
+# Instalando dependências 
+$ cd Desafio-Fundamentos-NodeJs
+$ yarn or npm install
+
+# Start
+yarn dev:start
 ```
 
 - Após isso só rodar o comando abaixo
